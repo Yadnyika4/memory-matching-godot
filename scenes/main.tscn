@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bhrem5tbra6f4"]
+
+[ext_resource type="Script" uid="uid://bwebl7cmw3tuj" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cuw0r6veshsd3" path="res://scenes/card.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://cpejd57go4gfa" path="res://assets/cards/avocado.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://mo80xhwhpfu1" path="res://assets/cards/dragon-fruit.png" id="3_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://u2ijf76qiv77" path="res://assets/sounds/match.mp3" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://dfakdam5nia0y" path="res://assets/cards/mangosteen.png" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://d0vwiy6h4w6an" path="res://assets/cards/pineapple.png" id="5_85g3d"]
+[ext_resource type="AudioStream" uid="uid://cnkv8b1nd1dq3" path="res://assets/sounds/flip.mp3" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://41i33g87ua6m" path="res://assets/sounds/wrong.mp3" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://uoek4scivhmi" path="res://assets/sounds/win.mp3" id="10_choun"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0.20110893, 0.7496859, 0.71915275, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
+bg_color = Color(0.14117648, 0.60784316, 0.58431375, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0.28235295, 0.8392157, 0.8, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Main" type="Node2D" unique_id=687481849]
+position = Vector2(0, 1)
+script = ExtResource("1_0wfyh")
+card_textures = Array[Texture2D]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), ExtResource("4_tipki"), ExtResource("5_85g3d")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2134488546]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.8745098, 0.9647059, 1, 1)
+
+[node name="Label" type="Label" parent="." unique_id=984068038]
+offset_top = 30.0
+offset_right = 1152.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.14117648, 0.23137255, 0.39215687, 1)
+theme_override_font_sizes/font_size = 36
+text = "MEMORY MATCHING GAME
+"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1043186040]
+offset_left = 176.0
+offset_top = 180.0
+offset_right = 976.0
+offset_bottom = 530.0
+columns = 4
+
+[node name="card" parent="GridContainer" unique_id=1264440331 instance=ExtResource("1_o5qli")]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1920670005]
+offset_left = 250.0
+offset_top = 110.0
+offset_right = 311.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.12156863, 0.22745098, 0.37254903, 1)
+theme_override_font_sizes/font_size = 20
+text = "Score: 0"
+
+[node name="MovesLabel" type="Label" parent="." unique_id=279522079]
+offset_left = 500.0
+offset_top = 110.0
+offset_right = 568.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.12156863, 0.22745098, 0.37254903, 1)
+theme_override_font_sizes/font_size = 20
+text = "Moves: 0"
+
+[node name="TimerLabel" type="Label" parent="." unique_id=900210568]
+offset_left = 750.0
+offset_top = 110.0
+offset_right = 814.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.12156863, 0.22745098, 0.37254903, 1)
+theme_override_font_sizes/font_size = 20
+text = "Time: 0s"
+
+[node name="GameTimer" type="Timer" parent="." unique_id=1280542052]
+autostart = true
+
+[node name="RestartButton" type="Button" parent="." unique_id=841801091]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 500.0
+offset_top = 480.0
+offset_right = 650.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ya4ey")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_choun")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+text = "Restart"
+
+[node name="WinLabel" type="Label" parent="." unique_id=775611649]
+offset_left = 430.0
+offset_top = 420.0
+offset_right = 608.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_font_sizes/font_size = 36
+text = "YOU WIN!!"
+
+[node name="FlipSound" type="AudioStreamPlayer" parent="." unique_id=211475614]
+stream = ExtResource("7_o6xl0")
+
+[node name="MatchSound" type="AudioStreamPlayer" parent="." unique_id=2138429256]
+stream = ExtResource("4_jyhfs")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="." unique_id=1083733895]
+stream = ExtResource("9_85g3d")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=193759273]
+stream = ExtResource("10_choun")

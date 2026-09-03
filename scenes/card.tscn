@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cuw0r6veshsd3"]
+
+[ext_resource type="Script" uid="uid://cow56o1wnwoeg" path="res://scripts/card.gd" id="1_d81rb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
+bg_color = Color(0.6, 0.84705883, 0.85490197, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d81rb"]
+bg_color = Color(0.019607844, 0.6, 0.6, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb6dy"]
+bg_color = Color(0.105882354, 0.6, 0.6, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="card" type="Button" unique_id=1264440331]
+custom_minimum_size = Vector2(160, 140)
+pivot_offset = Vector2(80, 70)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_choun")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d81rb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eb6dy")
+text = "?
+"
+script = ExtResource("1_d81rb")
+
+[node name="FrontImage" type="TextureRect" parent="." unique_id=1571185146]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 130.0
+expand_mode = 1
+stretch_mode = 5
