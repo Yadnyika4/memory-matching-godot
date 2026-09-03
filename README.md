@@ -36,8 +36,7 @@ The goal of the game is to flip cards, remember their positions, and match all i
 7. Try to complete the game with fewer moves and in less time.
 
 ## 📁 Project Structure
-
-
+```text
 memory-matching-godot/
 ├── assets/
 │   ├── cards/
@@ -50,8 +49,7 @@ memory-matching-godot/
 │   └── main.gd
 ├── project.godot
 └── README.md
-
-
+```
 ## 🚀 Running the Project
 
 1. Install **Godot Engine 4.x**.
@@ -63,7 +61,8 @@ memory-matching-godot/
 
 ## 📸 Screenshots
 
-Game screenshots will be added here.
+<img width="959" height="551" alt="Screenshot 2026-09-03 183522" src="https://github.com/user-attachments/assets/405576f0-acbd-4740-95e6-c54b45d24da8" />
+
 
 ## 👩‍💻 Developer
 
